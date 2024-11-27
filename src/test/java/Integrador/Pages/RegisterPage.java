@@ -32,30 +32,52 @@ public class RegisterPage extends BaseClass {
     }
 
     public void fill(String casoDePrueba) throws InterruptedException{
+        //Thread.sleep(1000);
         wait.until(ExpectedConditions.presenceOfElementLocated(byInscriptionBtn)).click();
         DataDriven colector = new DataDriven();
         ArrayList<String> registerData = colector.conexionDataSet(casoDePrueba);
         wait.until(ExpectedConditions.presenceOfElementLocated(byName));
-        if (buscarWebElement(byName).isDisplayed()) {
-            buscarWebElement(byName).sendKeys(registerData.get(1));
-            buscarWebElement(byLastName).sendKeys(registerData.get(2));
-            seleccionarDDLPorTexto(buscarWebElement(byDocType), registerData.get(3));
-            buscarWebElement(byDocNum).sendKeys(registerData.get(4));
-            seleccionarDDLPorTexto(buscarWebElement(byGender), registerData.get(5));
-            buscarWebElement(byBirthDate).sendKeys(registerData.get(6));
-            buscarWebElement(byEmailField).sendKeys(registerData.get(7));
-            buscarWebElement(byConfirm).sendKeys(registerData.get(8));
-            seleccionarDDLPorTexto(buscarWebElement(byProvince), registerData.get(9));
-            buscarWebElement(byLocality).sendKeys(registerData.get(10));
-            buscarWebElement(byAdress).sendKeys(registerData.get(11));
-            buscarWebElement(byPhoneNumer).sendKeys(registerData.get(12));
-            seleccionarDDLPorTexto(buscarWebElement(byNationality), registerData.get(13));
-            buscarWebElement(byComuna).sendKeys(registerData.get(14));
-            click(buscarWebElement(bySendBtn));
+        if (buscarWebElement(byName).isDisplayed()){
+            switch (casoDePrueba) {
+                case "CP005":
+                    buscarWebElement(byName).sendKeys(registerData.get(1));
+                    buscarWebElement(byLastName).sendKeys(registerData.get(2));
+                    seleccionarDDLPorTexto(buscarWebElement(byDocType), registerData.get(3));
+                    buscarWebElement(byDocNum).sendKeys(registerData.get(4));
+                    seleccionarDDLPorTexto(buscarWebElement(byGender), registerData.get(5));
+                    buscarWebElement(byBirthDate).sendKeys(registerData.get(6));
+                    seleccionarDDLPorTexto(buscarWebElement(byProvince), registerData.get(9));
+                    buscarWebElement(byLocality).sendKeys(registerData.get(10));
+                    buscarWebElement(byAdress).sendKeys(registerData.get(11));
+                    buscarWebElement(byPhoneNumer).sendKeys(registerData.get(12));
+                    seleccionarDDLPorTexto(buscarWebElement(byNationality), registerData.get(13));
+                    buscarWebElement(byComuna).sendKeys(registerData.get(14));
+                    click(buscarWebElement(bySendBtn));
+                    break;
+
+                default:
+                    buscarWebElement(byName).sendKeys(registerData.get(1));
+                    buscarWebElement(byLastName).sendKeys(registerData.get(2));
+                    seleccionarDDLPorTexto(buscarWebElement(byDocType), registerData.get(3));
+                    buscarWebElement(byDocNum).sendKeys(registerData.get(4));
+                    seleccionarDDLPorTexto(buscarWebElement(byGender), registerData.get(5));
+                    buscarWebElement(byBirthDate).sendKeys(registerData.get(6));
+                    buscarWebElement(byEmailField).sendKeys(registerData.get(7));
+                    buscarWebElement(byConfirm).sendKeys(registerData.get(8));
+                    seleccionarDDLPorTexto(buscarWebElement(byProvince), registerData.get(9));
+                    buscarWebElement(byLocality).sendKeys(registerData.get(10));
+                    buscarWebElement(byAdress).sendKeys(registerData.get(11));
+                    buscarWebElement(byPhoneNumer).sendKeys(registerData.get(12));
+                    seleccionarDDLPorTexto(buscarWebElement(byNationality), registerData.get(13));
+                    buscarWebElement(byComuna).sendKeys(registerData.get(14));
+                    click(buscarWebElement(bySendBtn));
+                    break;
+            }
         }
     }
 
     public void SendForm(){
-
+        wait.until(ExpectedConditions.presenceOfElementLocated(byInscriptionBtn)).click();
+        click(buscarWebElement(bySendBtn));
     }
 }

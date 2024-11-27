@@ -12,6 +12,8 @@ public class HomePage extends BaseClass {
     By byBibliotecas = By.xpath("//a[@href='/tramites-y-servicios/49']");
     By byAsosiarse = By.xpath("//h3[text()='Asociarse a la red de Bibliotecas públicas de la Ciudad']");
     By byLinkRegister = By.xpath("//a[@href='https://portalinscripciones.scp.buenosaires.gob.ar/#/actividad/8711']");
+    By byBuscador = By.xpath("//input[@id='search-home']");
+    By byBuscar = By.xpath("//button[text()='Buscar']");
 
     public HomePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -23,7 +25,11 @@ public class HomePage extends BaseClass {
         Thread.sleep(1000);
         wait.until(ExpectedConditions.presenceOfElementLocated(byAsosiarse)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(byLinkRegister)).click();
+    }
 
+    public void SearchAnything() throws InterruptedException{
+        wait.until(ExpectedConditions.presenceOfElementLocated(byBuscador)).sendKeys("Cualquier cosa");
+        click(buscarWebElement(byBuscar));
     }
 }
 
