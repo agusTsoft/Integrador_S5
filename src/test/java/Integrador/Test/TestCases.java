@@ -15,14 +15,14 @@ import java.util.concurrent.TimeUnit;
 
 
 public class TestCases {
-    private static WebDriver driver;
-    private static WebDriverWait wait;
-    private static HomePage homePage;
-    private static RegisterPage registerPage;
-    private static BaseClass baseClass;
-    private static String urlDriver = "C:\\IntegradorS5\\src\\test\\resources\\Drivers\\chromedriver.exe";
-    private static String property = "webdriver.chrome.driver";
-    private static String browser = "chrome";
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private HomePage homePage;
+    private RegisterPage registerPage;
+    private BaseClass baseClass;
+    private String urlDriver = "C:\\IntegradorS5\\src\\test\\resources\\Drivers\\chromedriver.exe";
+    private String property = "webdriver.chrome.driver";
+    private String browser = "chrome";
 
 
     @Test
